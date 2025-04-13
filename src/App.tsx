@@ -4,7 +4,7 @@ import Directory from "./components/Directory";
 
 export default function App() {
   const directory = [
-    { name: "John Doe", phone: "3059899497" },
+    { name: "John Doe", phone: "13059899497" },
     { name: "Jane Smith", phone: "1234567890" },
     { name: "Alice Johnson", phone: "1234567890" },
     { name: "Bob Brown", phone: "1234567890" },
