@@ -19,14 +19,14 @@ export default function App() {
         const result = await response.json();
         const rows = result.values as string[][];
         const directory: DirectoryItem[] = rows
-          .filter(row => Boolean(row))
           .slice(1)
           .map(([title, name, phone, image]) => ({
             title,
             name,
             phone,
             image,
-          }));
+          }))
+          .filter(item => item.title && item.name && item.phone);
         setData(directory);
       } catch (error) {
         console.error("Error fetching data:", error);
