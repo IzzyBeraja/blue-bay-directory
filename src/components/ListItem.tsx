@@ -1,11 +1,10 @@
-import profileImg from "../assets/blank-profile-picture.webp";
-
 interface Props {
+  image: string;
   title: string;
   phone: string;
 }
 
-export default function ListItem({ title, phone }: Props) {
+export default function ListItem({ image, title, phone }: Props) {
   return (
     <div
       style={{
@@ -20,9 +19,14 @@ export default function ListItem({ title, phone }: Props) {
       }}
     >
       <img
-        src={profileImg}
+        src={image}
         alt={title}
-        style={{ aspectRatio: 1, width: "4rem", borderRadius: "100%" }}
+        style={{
+          objectFit: "cover",
+          aspectRatio: 1,
+          width: "4rem",
+          borderRadius: "100%",
+        }}
       />
       <h2 style={{ fontSize: "2rem", flex: 1, textAlign: "left" }}>{title}</h2>
       <button
