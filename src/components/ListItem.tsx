@@ -25,7 +25,9 @@ export default function ListItem({ title, phone }: Props) {
         style={{ aspectRatio: 1, width: "4rem", borderRadius: "100%" }}
       />
       <h2 style={{ fontSize: "2rem", flex: 1, textAlign: "left" }}>{title}</h2>
-      <button onClick={() => (window.location.href = `facetime://+${phone}`)}>
+      <button
+        onClick={() => (window.location.href = `facetime-audio://+1${phone}`)}
+      >
         CALL
       </button>
     </div>
