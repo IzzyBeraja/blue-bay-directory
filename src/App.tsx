@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const SHEETS_ID = "1jZp37AYOSk-cJCyajCHQ4Ny-Nqq8tpfsybwHtJt7jEA";
 const API_KEY = "AIzaSyDjCimDGysZuwU6bPuiyyoESJTeMDXv5d0";
 const SHEET_NAME = "Sheet1";
-const RANGE = "A:C";
+const RANGE = "A:D";
 const API_URL = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!${RANGE}?key=${API_KEY}`;
 
 export default function App() {
@@ -19,9 +19,14 @@ export default function App() {
         const result = await response.json();
         const rows = result.values as string[][];
         const directory: DirectoryItem[] = rows
-          .filter(row => Boolean(row) && row.length === 3)
+          .filter(row => Boolean(row) && row.length === 4)
           .slice(1)
-          .map(([image, name, phone]) => ({ image, name, phone }));
+          .map(([title, name, phone, image]) => ({
+            title,
+            name,
+            phone,
+            image,
+          }));
         setData(directory);
       } catch (error) {
         console.error("Error fetching data:", error);

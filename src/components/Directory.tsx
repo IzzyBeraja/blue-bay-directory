@@ -8,6 +8,7 @@ export type DirectoryItem = {
   image: string;
   name: string;
   phone: string;
+  title: string;
 };
 
 export default function Directory({ directory }: Props) {
@@ -23,8 +24,14 @@ export default function Directory({ directory }: Props) {
       <h1 style={{ marginBottom: "2rem", textAlign: "center" }}>
         COMPANY DIRECTORY
       </h1>
-      {directory.map(({ image, name, phone }, index) => (
-        <ListItem key={index} image={image} title={name} phone={phone} />
+      {directory.map(({ image, name, phone, title }, index) => (
+        <ListItem
+          key={index}
+          image={image}
+          name={name}
+          title={title}
+          phone={phone}
+        />
       ))}
     </div>
   );

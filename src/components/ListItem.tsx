@@ -1,10 +1,13 @@
+import profileImg from "../assets/blank-profile-picture.webp";
+
 interface Props {
-  image: string;
+  image: string | null;
   title: string;
   phone: string;
+  name: string;
 }
 
-export default function ListItem({ image, title, phone }: Props) {
+export default function ListItem({ image, name, title, phone }: Props) {
   return (
     <div
       style={{
@@ -19,7 +22,7 @@ export default function ListItem({ image, title, phone }: Props) {
       }}
     >
       <img
-        src={image}
+        src={image ?? profileImg}
         alt={title}
         style={{
           objectFit: "cover",
@@ -28,7 +31,10 @@ export default function ListItem({ image, title, phone }: Props) {
           borderRadius: "100%",
         }}
       />
-      <h2 style={{ fontSize: "2rem", flex: 1, textAlign: "left" }}>{title}</h2>
+      <div style={{ flex: 1, textAlign: "left" }}>
+        <h2 style={{ fontSize: "2rem" }}>{title}</h2>
+        <h3>{name}</h3>
+      </div>
       <button
         onClick={() => (window.location.href = `facetime-audio://+1${phone}`)}
       >
