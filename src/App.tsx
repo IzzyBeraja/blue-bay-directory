@@ -17,7 +17,6 @@ export default function App() {
       try {
         const response = await fetch(API_URL);
         const result = await response.json();
-        console.log(result);
         const rows = result.values as string[][];
         const directory: DirectoryItem[] = rows
           .slice(1)
